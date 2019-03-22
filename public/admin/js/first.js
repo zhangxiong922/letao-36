@@ -35,8 +35,8 @@ $(function() {
 
 
    $("#button").on("click",function() {
-       $("#firstModel").modal('show');
-   })
+    $("#firstModel").modal('show');
+})
 
    //使用表单校验插件
 $("#firstForm").bootstrapValidator({

@@ -1,0 +1,19 @@
+.table > thead > tr > th {
+    text-align: center;
+}
+.table > tbody > tr > td {
+    text-align: center;
+    vertical-align: middle;
+}
+#secondUl {
+    float:right;
+}
+form {
+    padding-top: 20px;
+}
+.dropdown {
+    margin-bottom: 20px;
+}
+#text {
+    margin-bottom: 20px;
+}
