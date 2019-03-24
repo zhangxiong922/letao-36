@@ -210,6 +210,8 @@ $(function () {
                 // console.log(info);
                 if(info.success) {
                     $("#form").data('bootstrapValidator').resetForm(true);
+                    $(".zi").text('请选择二级分类')
+                    $(".imgbox").children().remove();
                     $("#mModel").modal('hide');
                     aj();
                 }
