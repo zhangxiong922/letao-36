@@ -1,14 +1,18 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>登录</title>
     <link rel="stylesheet" href="./lib/bootstrap/css/bootstrap.css">
+    <link rel="stylesheet" href="./lib/bootstrap-validator/css/bootstrapValidator.css">
     <link rel="stylesheet" href="./lib/nprogress/nprogress.css">
     <link rel="stylesheet" href="./css/common.css">
+    <link rel="stylesheet" href="./css/product.css">
 </head>
+
 <body class="index-body">
     <div class="aside">
         <div class="head"><a href="javascript:;">黑马36期</a></div>
@@ -18,7 +22,7 @@
         </div>
         <ul>
             <li><a href="user.html"><span class="glyphicon glyphicon-user"></span>用户管理</a></li>
-            <li ><a href="#" class="nn"><span class="glyphicon glyphicon-list"></span>分类管理</a>
+            <li><a href="#" class="nn"><span class="glyphicon glyphicon-list"></span>分类管理</a>
                 <ul class="non">
                     <li><a href="first.html">一级分类</a></li>
                     <li><a href="second.html">二级分类</a></li>
@@ -27,44 +31,171 @@
             <li><a href="product.html"><span class="glyphicon glyphicon-tags"></span>商品管理</a></li>
         </ul>
     </div>
-   <div class="main">
-    <div class="top">
-        <div class="zuo pull-left"><a href="#" class="glyphicon glyphicon-align-justify"></a></div>
-        <div class="you pull-right"><a href="#" class="glyphicon glyphicon-log-out out"></a></div>
-    </div>
-    <div class="content">
-        <div class="container-fluid mian">
-            <ol class="breadcrumb">
-                <li><a href="#">管理系统</a></li>
-                <li class="active">商品管理</li>
-              </ol>
+    <div class="main">
+        <div class="top">
+            <div class="zuo pull-left"><a href="#" class="glyphicon glyphicon-align-justify"></a></div>
+            <div class="you pull-right"><a href="#" class="glyphicon glyphicon-log-out out"></a></div>
         </div>
-    </div>
-   </div>
+        <div class="content">
+            <div class="container-fluid mian">
+                <ol class="breadcrumb">
+                    <li><a href="#">管理系统</a></li>
+                    <li class="active">商品管理</li>
+                </ol>
 
-   <!-- 模态框 -->
-   <div class="modal fade" tabindex="-1" role="dialog" id="myModel">
-    <div class="modal-dialog modal-sm" role="document">
-      <div class="modal-content">
-        <div class="modal-header">
-          <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-          <h4 class="modal-title">温馨提示</h4>
+
+                <button id="button" class="btn btn-default">添加商品</button>
+                <table class="table table-bordered table-hover">
+                    <thead>
+                        <tr>
+                            <th width="10%">序号</th>
+                            <th width="25%">商品名称</th>
+                            <th width="25%">商品描述</th>
+                            <th width="10%">商品库存</th>
+                            <th width="10%">商品尺寸</th>
+                            <th width="10%">商品状态</th>
+                            <th width="10%">操作</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+
+                    </tbody>
+                </table>
+                <ul id="pagintor">
+
+                </ul>
+            </div>
+
+
         </div>
-        <div class="modal-body">
-          <p><span class="glyphicon glyphicon-info-sign"></span>您确定要退出后台管理系统吗?</p>
-        </div>
-        <div class="modal-footer">
-          <button type="button" class="btn btn-default" data-dismiss="modal">取消</button>
-          <button type="button" class="btn btn-primary tui">退出</button>
-        </div>
-      </div><!-- /.modal-content -->
-    </div><!-- /.modal-dialog -->
-  </div><!-- /.modal -->
+    </div>
+
+    <!-- 模态框 -->
+    <div class="modal fade" tabindex="-1" role="dialog" id="myModel">
+        <div class="modal-dialog modal-sm" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                    <h4 class="modal-title">温馨提示</h4>
+                </div>
+                <div class="modal-body">
+                    <p><span class="glyphicon glyphicon-info-sign"></span>您确定要退出后台管理系统吗?</p>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default" data-dismiss="modal">取消</button>
+                    <button type="button" class="btn btn-primary tui">退出</button>
+                </div>
+            </div><!-- /.modal-content -->
+        </div><!-- /.modal-dialog -->
+    </div><!-- /.modal -->
+
+    <!-- 模态框 -->
+    <div class="modal fade" tabindex="-1" role="dialog" id="mModel">
+        <div class="modal-dialog modal-md" role="document">
+            <div class="modal-content">
+                    <form id="form">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                    <h4 class="modal-title">添加商品</h4>
+                </div>
+                <div class="modal-body">
+                   
+                        <!-- 下拉菜单 -->
+                        <div class="form-group">
+                            <div class="dropdown">
+                                <button class="btn btn-default dropdown-toggle" type="button" id="dropdownMenu1"
+                                    data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
+                                    <span class="zi">请选择二级分类</span>
+                                    <span class="caret"></span>
+                                </button>
+                                <ul class="dropdown-menu" aria-labelledby="dropdownMenu1">
+                                    
+
+                                </ul>
+                            </div>
+                            <input type="hidden" name="brandId" >
+                        </div>
+
+                        <div class="form-group">
+                            <label class="sr-only" for="exampleInputEmail3"></label>
+                            <input type="text" class="form-control" name="proName" id="exampleInputEmail3" placeholder="请输入商品名称">
+                        </div>
+
+                        <div class="form-group">
+                            <label class="sr-only" for="exampleInputPassword3"></label>
+                            <textarea class="form-control" rows="3" name="proDesc" id="exampleInputPassword3" placeholder="请输入商品描述"></textarea>
+                        </div>
+
+                        <div class="form-group">
+                            <label class="sr-only" for="text1"></label>
+                            <input type="text" class="form-control" name="num" id="text1" placeholder="请输入商品库存">
+                        </div>
+
+                        <div class="form-group">
+                            <label class="sr-only" for="text2"></label>
+                            <input type="text" class="form-control" name="size" id="text2" placeholder="请输入商品尺码">
+                        </div>
+
+                        <div class="form-group">
+                            <label class="sr-only" for="text3"></label>
+                            <input type="text" name="oldPrice" class="form-control" id="text3" placeholder="请输入商品原价">
+                        </div>
+
+                        <div class="form-group">
+                            <label class="sr-only" for="text4"></label>
+                            <input type="text" name="price" class="form-control" id="text4" placeholder="请输入商品现价">
+                        </div>
+
+                        <!-- 上传图片 -->
+                        <div class="form-group">
+                                <label class="btn btn-default" for="file">上传图片</label>
+                                <input type="file" id="file" class="hidden" name="pic1" data-url="/product/addProductPic" multiple>
+                                <div class="imgbox"></div>
+                                <input type="hidden" name="picArr1">
+                                
+                        </div>
+
+                    
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default" data-dismiss="modal">取消</button>
+                    <button type="submit" class="btn btn-primary ">添加</button>
+                    
+                </div>
+            </form>
+            </div><!-- /.modal-content -->
+        </div><!-- /.modal-dialog -->
+    </div><!-- /.modal -->
     <script src="./lib/jquery/jquery.js"></script>
+    <script src="./lib/jquery-fileupload/jquery.ui.widget.js"></script>
+    <script src="./lib/jquery-fileupload/jquery.fileupload.js"></script>
     <script src="./lib/bootstrap/js/bootstrap.js"></script>
+    <script src="./lib/bootstrap-paginator/bootstrap-paginator.js"></script>
+    <script src="./lib/bootstrap-validator/js/bootstrapValidator.js"></script>
     <script src="./lib/nprogress/nprogress.js"></script>
+    <script src="./lib/artTemplate/template-web.js"></script>
     <script src="./js/commit.js"></script>
-    
-   
+    <script src="./js/pronuct.js"></script>
+    <script type="text/html" id="tmp3">
+        {{each rows v i}}
+        <tr>
+            <td>{{(page - 1) * size + i + 1}}</td>
+            <td>{{v.proName}}</td>
+            <td>{{v.proDesc}}</td>
+            <td>{{v.num}}</td>
+            <td>{{v.size}}</td>
+            <td>{{v.statu === 1 ? '已上架' : '未上架'}}</td>
+            <td><button class="btn btn-danger">{{v.statu === 1 ? '下架' : '上架'}}</button></td>
+        </tr>
+        {{/each}}
+    </script>
+    <script type="text/html" id="tmp4">
+        {{each rows v i}}
+        <li data-id="{{v.id}}"><a href="#">{{v.brandName}}</a></li>
+        {{/each}}
+    </script>
+
+
 </body>
+
 </html>

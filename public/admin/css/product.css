@@ -1,0 +1,8 @@
+.content .table > thead > tr > th,
+.content .table > tbody > tr > td {
+    text-align: center;
+    vertical-align: middle;
+}
+#pagintor {
+    float: right;
+}
